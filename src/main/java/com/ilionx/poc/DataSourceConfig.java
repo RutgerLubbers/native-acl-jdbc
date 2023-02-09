@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
 /**
- * Configuration to define a datasource.
+ * Configuration to define a datasource. Required, otherwise Spring ACL will not find a datasource.
  */
 @Configuration
 public class DataSourceConfig {
@@ -23,8 +23,7 @@ public class DataSourceConfig {
   @Bean
   public DataSource dataSource(final DataSourceProperties dataSourceProperties) {
     System.out.println("***");
-    System.out.println(dataSourceProperties.getDriverClassName());
-    System.out.println(dataSourceProperties.getUrl());
+    System.out.printf("jdbc url: '%s'%n", dataSourceProperties.getUrl());
     System.out.println("***");
     dataSourceProperties.setDriverClassName(Driver.class.getName());
     return dataSourceProperties.initializeDataSourceBuilder().build();

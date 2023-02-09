@@ -1,25 +1,5 @@
 pluginManagement {
-    repositories {
-        maven {
-            name = "plugins-artifactory"
-            if (System.getenv("ARTIFACTORY_PWD") != null) {
-                credentials {
-                    println("[build] Using authenticated artifactory for plugins.")
-                    username = System.getenv("ARTIFACTORY_UID")
-                    password = System.getenv("ARTIFACTORY_PWD")
-                }
-                authentication {
-                    basic(BasicAuthentication)
-                }
-            }
 
-            allowInsecureProtocol = true
-            url = uri((System.getenv("ARTIFACTORY_URL")
-                    ?: "https://artifactory.ilionx.cloud/artifactory/repo/"))
-            println("[build] Using artifactory for plugins: " + url)
-
-        }
-    }
 }
 
 rootProject.name = 'native-jdbc'

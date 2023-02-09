@@ -22,11 +22,13 @@ import org.springframework.security.acls.model.AclCache;
 import org.springframework.security.acls.model.AclService;
 import org.springframework.security.acls.model.MutableAclService;
 import org.springframework.security.acls.model.PermissionGrantingStrategy;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 /**
  * Configuration for Spring Security's Domain Object Security (ACLs).
  */
+@EnableMethodSecurity(prePostEnabled = true, securedEnabled = true)
 @Configuration
 public class SpringSecurityAclConfig {
 
