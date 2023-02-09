@@ -17,7 +17,7 @@ plugins {
     id("org.springframework.boot") version springBootVersion
     id("io.spring.dependency-management") version springDependencyManagementVersion
 
-    id("org.graalvm.buildtools.native") version "0.9.18"
+//    id("org.graalvm.buildtools.native") version "0.9.18"
 }
 
 repositories {
@@ -33,11 +33,11 @@ dependencies {
 
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
-    implementation("org.springframework.boot:spring-boot-starter-web")
-
+    implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.security:spring-security-acl")
 
-    implementation("org.springframework.boot:spring-boot-starter-security")
+
+    implementation("com.zaxxer:HikariCP")
 
     implementation("org.postgresql:postgresql:${postgresqlVersion}")
 }

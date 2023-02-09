@@ -3,6 +3,7 @@ package com.ilionx.poc;
 import javax.sql.DataSource;
 import org.postgresql.Driver;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -22,10 +23,10 @@ public class DataSourceConfig {
   @Primary
   @Bean
   public DataSource dataSource(final DataSourceProperties dataSourceProperties) {
-    System.out.println("***");
-    System.out.printf("jdbc url: '%s'%n", dataSourceProperties.getUrl());
-    System.out.println("***");
-    dataSourceProperties.setDriverClassName(Driver.class.getName());
+    System.out.println(">>>");
+    System.out.printf(">>> jdbc driver: '%s'%n", dataSourceProperties.getDriverClassName());
+    System.out.printf(">>> jdbc url: '%s'%n", dataSourceProperties.getUrl());
+    System.out.println(">>>");
     return dataSourceProperties.initializeDataSourceBuilder().build();
   }
 
@@ -37,9 +38,9 @@ public class DataSourceConfig {
   @Primary
   @Bean
   public DataSourceProperties dataSourceProperties() {
-    System.out.println("***");
-    System.out.println("*** Creating DataSourceProperties");
-    System.out.println("***");
+    System.out.println(">>>");
+    System.out.println(">>> Creating DataSourceProperties");
+    System.out.println(">>>");
     return new DataSourceProperties();
   }
 }
